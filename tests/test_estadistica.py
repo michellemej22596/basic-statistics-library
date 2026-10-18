@@ -1,6 +1,6 @@
 import pytest
 
-from estadistica import media, mediana
+from estadistica import media, mediana, moda
 
 # Entradas inválidas que todas las funciones deben rechazar con una excepción.
 FUNCIONES = [media, mediana]
@@ -46,3 +46,17 @@ def test_mediana_cantidad_par():
 
 def test_mediana_desordenada_con_negativos():
     assert mediana([10, -5, 0, 7, -1]) == 0
+
+
+# ---------- moda ----------
+
+def test_moda_un_valor_repetido():
+    assert moda([1, 2, 2, 3]) == 2
+
+
+def test_moda_decimales():
+    assert moda([1.5, 2.5, 1.5, 4.0]) == 1.5
+
+
+def test_moda_empate_retorna_el_menor():
+    assert moda([5, 3, 5, 3, 9]) == 3
