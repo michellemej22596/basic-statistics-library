@@ -1,9 +1,9 @@
 import pytest
 
-from estadistica import media
+from estadistica import media, mediana
 
 # Entradas inválidas que todas las funciones deben rechazar con una excepción.
-FUNCIONES = [media]
+FUNCIONES = [media, mediana]
 CASOS_ERROR = [
     ([], ValueError),          # lista vacía
     (None, TypeError),         # no es lista
@@ -32,3 +32,17 @@ def test_media_decimales_y_negativos():
 
 def test_media_un_elemento():
     assert media([7]) == 7
+
+
+# ---------- mediana ----------
+
+def test_mediana_cantidad_impar():
+    assert mediana([3, 1, 2]) == 2
+
+
+def test_mediana_cantidad_par():
+    assert mediana([4, 1, 3, 2]) == 2.5
+
+
+def test_mediana_desordenada_con_negativos():
+    assert mediana([10, -5, 0, 7, -1]) == 0
