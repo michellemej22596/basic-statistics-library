@@ -21,3 +21,18 @@ def media(numeros):
     """Retorna la media aritmética: suma de los valores entre la cantidad."""
     _validar(numeros)
     return sum(numeros) / len(numeros)
+
+
+
+def mediana(numeros):
+    """Retorna el valor central de la lista ordenada.
+
+    Si la cantidad de elementos es par, retorna el promedio de los dos centrales.
+    """
+    _validar(numeros)
+    ordenados = sorted(numeros)
+    n = len(ordenados)
+    mitad = n // 2
+    if n % 2 == 1:
+        return ordenados[mitad]
+    return (ordenados[mitad - 1] + ordenados[mitad]) / 2

@@ -1,5 +1,5 @@
 """Librería de estadística básica."""
 
-from .estadistica import media
+from .estadistica import media, mediana
 
-__all__ = ["media"]
+__all__ = ["media", "mediana"]
