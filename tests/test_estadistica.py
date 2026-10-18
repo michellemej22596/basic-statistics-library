@@ -3,7 +3,7 @@ import pytest
 from estadistica import media, mediana, moda
 
 # Entradas inválidas que todas las funciones deben rechazar con una excepción.
-FUNCIONES = [media, mediana]
+FUNCIONES = [media, mediana, moda]
 CASOS_ERROR = [
     ([], ValueError),          # lista vacía
     (None, TypeError),         # no es lista
