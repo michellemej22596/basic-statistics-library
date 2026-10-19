@@ -50,3 +50,10 @@ def moda(numeros):
         conteo[n] = conteo.get(n, 0) + 1
     maximo = max(conteo.values())
     return min(valor for valor, veces in conteo.items() if veces == maximo)
+
+
+def variance(numeros):
+    """Retorna la varianza poblacional: promedio de las distancias al cuadrado a la media."""
+    _validar(numeros)
+    m = media(numeros)
+    return sum((n - m) ** 2 for n in numeros) / len(numeros) 
