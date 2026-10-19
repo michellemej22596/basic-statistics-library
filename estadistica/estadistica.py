@@ -36,3 +36,17 @@ def mediana(numeros):
     if n % 2 == 1:
         return ordenados[mitad]
     return (ordenados[mitad - 1] + ordenados[mitad]) / 2
+
+
+
+def moda(numeros):
+    """Retorna el valor que más se repite.
+
+    Si hay empate entre varios valores, retorna el menor de ellos.
+    """
+    _validar(numeros)
+    conteo = {}
+    for n in numeros:
+        conteo[n] = conteo.get(n, 0) + 1
+    maximo = max(conteo.values())
+    return min(valor for valor, veces in conteo.items() if veces == maximo)
