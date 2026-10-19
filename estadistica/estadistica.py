@@ -1,5 +1,7 @@
 """Funciones de estadística básica sobre listas de números."""
 
+import math
+
 
 def _validar(numeros):
     """Verifica que `numeros` sea una lista o tupla no vacía de números.
@@ -56,4 +58,9 @@ def variance(numeros):
     """Retorna la varianza poblacional: promedio de las distancias al cuadrado a la media."""
     _validar(numeros)
     m = media(numeros)
-    return sum((n - m) ** 2 for n in numeros) / len(numeros) 
+    return sum((n - m) ** 2 for n in numeros) / len(numeros)
+
+
+def ds(numeros):
+    """Retorna la desviación estándar poblacional: raíz cuadrada de la varianza."""
+    return math.sqrt(variance(numeros))
