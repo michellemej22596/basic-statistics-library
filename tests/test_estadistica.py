@@ -1,9 +1,11 @@
+import math
+
 import pytest
 
-from estadistica import media, mediana, moda, variance
+from estadistica import ds, media, mediana, moda, variance
 
 # Entradas inválidas que todas las funciones deben rechazar con una excepción.
-FUNCIONES = [media, mediana, moda, variance]
+FUNCIONES = [media, mediana, moda, variance, ds]
 CASOS_ERROR = [
     ([], ValueError),          # lista vacía
     (None, TypeError),         # no es lista
@@ -74,3 +76,17 @@ def test_variance_decimales():
 
 def test_variance_valores_iguales_es_cero():
     assert variance([3, 3, 3]) == 0
+
+
+# ---------- ds ----------
+
+def test_ds_enteros():
+    assert ds([2, 4, 4, 4, 5, 5, 7, 9]) == 2
+
+
+def test_ds_decimales():
+    assert ds([1.5, 2.5, 3.5]) == pytest.approx(math.sqrt(2 / 3))
+
+
+def test_ds_valores_iguales_es_cero():
+    assert ds([8, 8, 8]) == 0
