@@ -36,7 +36,7 @@ def mediana(numeros):
     n = len(ordenados)
     mitad = n // 2
     if n % 2 == 1:
-        return ordenados[0]
+        return ordenados[mitad]
     return (ordenados[mitad - 1] + ordenados[mitad]) / 2
 
 
